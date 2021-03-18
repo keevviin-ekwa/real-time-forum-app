@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
+    protected $guarded =[];
     public function question()
     {
         return $this->belongsTo(Question::class);
@@ -19,6 +20,6 @@ class Reply extends Model
 
     public function like(){
 
-        $this->hasMany(Like::class);
+        return $this->hasMany(Like::class);
     }
 }

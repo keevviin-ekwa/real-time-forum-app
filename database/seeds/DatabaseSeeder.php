@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use \App\Models\Like;
 use \App\Models\Reply;
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +17,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\Models\Question::class,10)->create();
 
         factory(Reply::class, 50)->create()->each(function ($reply) {
-            return $reply->like()->save(factory(Like::class)->make());
+            return $reply->like()->save(factory(\App\Models\Like::class)->make());
         });
     }
 }
